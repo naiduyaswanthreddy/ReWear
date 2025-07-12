@@ -1,274 +1,232 @@
-# 👗♻️ ReWear - Community Clothing Exchange
+# ♻️ ReWear - Community Clothing Exchange 👗🌱
 
-**ReWear** is a sustainable fashion platform enabling users to swap or redeem clothing using a point-based system. Built for eco-conscious communities, ReWear promotes the reuse of fashion through direct swaps, points, and donations — reducing textile waste and creating a circular wardrobe economy.
+**ReWear** is a sustainable, community-driven clothing exchange platform that promotes eco-conscious fashion through direct swaps and a point-based redemption system. Built for impact, ReWear reduces textile waste, gamifies the eco-journey, and brings like-minded fashion recyclers together.
 
-🌱 _Swap clothes. Earn points. Save the planet._
+🚀 Built for Hackathons | 💚 Eco-friendly | ⚡ Real-time Swaps | 🧠 AI-Powered
 
 ---
 
 ## 🌐 Live Demo
+> 🔗 [https://rewear-app.vercel.app](https://rewear-app.vercel.app) (Frontend - Vercel)  
+> 🔗 [https://rewear-api.onrender.com](https://rewear-api.onrender.com) (Backend - Render)
 
-🚀 [ReWear Live Site](https://rewear-demo.vercel.app)  
-🔐 Demo Admin Login:  
-Email: admin@rewear.com  
-Password: SecurePass123!
-
----
-
-## 🛠️ Tech Stack
-
-### Frontend
-- React (via CDN)
-- Tailwind CSS (via CDN)
-- JSX with Babel (via CDN)
-- Swiper.js (carousel), FontAwesome, Framer Motion
-- PWA-enabled, responsive, and WCAG 2.1 accessible
-
-### Backend
-- Node.js + Express.js
-- MongoDB Atlas (Mongoose ODM)
-- Cloudinary (Image Uploads)
-- JWT Auth (stored in localStorage)
-- bcrypt for password hashing
-- Socket.io (for real-time swap events)
-
-### Deployment
-- Frontend: Vercel
-- Backend: Render
-- Database: MongoDB Atlas
-- File Storage: Cloudinary
+> 🛠 Admin Credentials:  
+> 📧 `admin@rewear.com`  
+> 🔐 `SecurePass123!`
 
 ---
 
-## 📦 Folder Structure
-
-ReWear/
-├── client/ # Frontend (React via CDN, Tailwind CSS)
-│ ├── index.html
-│ ├── app.js
-│ └── components/
-├── server/ # Backend (Node.js, Express, MongoDB)
-│ ├── models/
-│ ├── routes/
-│ ├── middleware/
-│ ├── controllers/
-│ └── server.js
-├── README.md
-└── .env # Environment variables (not committed)
-
-yaml
-Copy
-Edit
+## 📸 Mockup Inspiration
+Design follows this Excalidraw:  
+🔗 [ReWear UI Mockup](https://app.excalidraw.com/l/65VNwvy7c4X/zEqG7IJrg0)
 
 ---
 
-## 🧪 Getting Started
+## 🧰 Tech Stack
 
-### 1. Clone the Repository
+| Layer        | Technologies                                                                 |
+|--------------|------------------------------------------------------------------------------|
+| Frontend     | React (via CDN), JSX, Tailwind CSS (CDN), Babel (if needed), Swiper.js       |
+| Backend      | Node.js, Express.js                                                          |
+| Database     | MongoDB Atlas                                                                |
+| Auth         | JWT (Email & Password), Bcrypt                                               |
+| File Upload  | Cloudinary (for item image uploads)                                          |
+| Realtime     | Socket.io (for live swap events)                                             |
+| PWA          | Workbox, `manifest.json`, service worker                                     |
+| Deployment   | Frontend on Vercel, Backend on Render                                        |
+
+---
+
+## 🖥 Features
+
+### 🌍 Landing Page
+- Eco-themed hero section with video background
+- CTAs: Start Swapping / Browse Items / List Item
+- Sustainability Impact Stats
+- Featured Items carousel (auto-scroll/manual)
+
+### 👤 User Authentication
+- Signup/Login (JWT-based)
+- Passwords hashed via bcrypt
+- Session stored in localStorage
+
+### 🏠 User Dashboard
+- Profile (username, email, edit option)
+- Points balance (earn/redeem system)
+- Uploaded items (status: available/swapped)
+- Swap history (pending/completed)
+- Sustainability Impact Tracker
+- Earn Badges for achievements
+
+### 🧺 Item Management
+- **Browse Items**: Filter by category/size/condition; search by tags
+- **Add Item**: Upload up to 5 images, fill description, dropdowns & tags
+- **Item Detail Page**: Carousel gallery, uploader info, request swap/redeem via points
+- **Virtual Try-On**: Upload selfie or use avatar (2D overlay with Fabric.js)
+
+### 🔄 Swap System
+- Propose direct swaps with own items
+- Redeem with 50 points
+- Accept/Reject swaps from dashboard
+- Earn 20 points per successful swap
+- Cancel pending requests anytime
+
+### 🛡️ Admin Panel
+- Approve/Reject pending items
+- View/Delete any item
+- Platform-wide announcements
+- View dashboard metrics: users, items, swaps
+- Seeded admin user (see credentials above)
+
+### 🎉 Community & Events
+- Create/Join Swap Circles (e.g., “Vintage Vibes”)
+- Group-based private swaps
+- Host live swap events with real-time updates & chat
+
+### 🧠 AI-Powered Recommendations
+- Suggested items based on tags & swap history
+
+### ❤️ Charity Integration
+- Donate items for points
+- Display platform donation impact
+
+---
+
+## 🔧 Setup Instructions
+
+### 🔑 Environment Variables
+
+**Frontend (`/client`)**
+
+No special `.env` needed (React via CDN). Just open `index.html` or deploy via Vercel.
+
+**Backend (`/server`)**
+
+Create a `.env` file:
+```env
+PORT=5000
+MONGO_URI=mongodb+srv://<your-cluster>.mongodb.net/rewear
+JWT_SECRET=your_jwt_secret
+CLOUDINARY_CLOUD_NAME=your_cloud_name
+CLOUDINARY_API_KEY=your_key
+CLOUDINARY_API_SECRET=your_secret
+```
+
+### 🔌 Installation
 
 ```bash
-git clone https://github.com/your-username/rewear.git
-cd rewear
-2. Install Backend Dependencies
-bash
-Copy
-Edit
+# Backend Setup
 cd server
 npm install
-3. Create .env File
-Inside server/, create a .env with the following:
-
-ini
-Copy
-Edit
-MONGO_URI=your_mongo_db_connection_string
-JWT_SECRET=your_secret_key
-CLOUDINARY_CLOUD_NAME=your_cloud_name
-CLOUDINARY_API_KEY=your_api_key
-CLOUDINARY_API_SECRET=your_api_secret
-4. Run Backend Server
-bash
-Copy
-Edit
 npm start
-Server runs on http://localhost:5000
 
-5. Launch Frontend
-Open client/index.html in your browser (served as a static CDN-based React SPA).
+# Frontend (if using local dev tools)
+cd client
+npm install
+npm run dev
+```
 
-🧪 Seed Sample Data
-Run the following to insert demo users, items, and swaps:
+---
 
-bash
-Copy
-Edit
-node seed.js
-This creates:
+## 🧪 Testing & Security
 
-👤 5 demo users
+- Unit tests included for auth & swap logic (`/tests`)
+- API routes protected via JWT
+- XSS-safe input validation
+- MongoDB indexing on tags, categories for fast filtering
 
-👕 10 sample clothing items
+---
 
-🔁 3 completed swaps
+## 🧪 Sample Data
 
-👑 1 admin (admin@rewear.com / SecurePass123!)
+Seeded in `/server/seed.js`:
+- ✅ 10 Items (varied types: tops, jeans, dresses)
+- 👤 5 Users (with points & uploads)
+- 🔄 3 Completed swaps
+- 🛡 1 Admin
 
-✨ Features
-👚 Landing Page
-Mission-focused intro
+---
 
-Hero with video background
+## 📲 PWA Features
+- Installable with icon on mobile
+- Offline caching for Browse & Landing
+- Manifest + Service Worker enabled
 
-Featured items carousel
+---
 
-CTAs: Swap, Browse, List
+## ♿ Accessibility (WCAG 2.1)
 
-🔐 User Authentication
-JWT email/password signup/login
+- ARIA labels on all buttons
+- Semantic HTML5 structure
+- Keyboard navigable components
+- Color contrast verified (4.5:1 minimum)
 
-Secure password hashing via bcrypt
+---
 
-🧑‍💼 User Dashboard
-View profile, points, badges
+## 🌿 Eco Design System
 
-Track swaps, redeem history
+| Element     | Color Code       |
+|-------------|------------------|
+| Primary     | `#2E7D32` (Forest Green) |
+| Background  | `#F5F5F5` (Soft White)   |
+| Accent      | `#FFCA28` (Mustard)      |
+| Dark Mode   | `#1A3C34` (Dark Green)   |
 
-Edit account settings
+Typography:  
+- **Headings**: `Playfair Display`  
+- **Body**: `Inter`  
 
-Sustainability impact tracker
+---
 
-📦 Item Listing & Detail View
-Upload items (5 image max via Cloudinary)
+## 🏆 Badges & Gamification
 
-Rich description, category, size, condition
+- 🎖 Eco Warrior – 5 Swaps  
+- 🌟 Trendsetter – 10 Items Listed  
+- 🌱 Green Pioneer – 20 kg CO₂ Saved  
 
-Swap or Redeem with points
+---
 
-Image gallery w/ zoom & carousel
+## 📊 Sustainability Tracker
 
-🔄 Swap System
-Propose/accept/cancel swaps
+> “You’ve saved 13.5 kg CO₂ and 13,500L water by swapping 5 items!”
 
-Earn 20 points per completed swap
+Based on:
+- 1 shirt = ~2.7kg CO₂, 2,700L water
+- Backend calculates on every successful swap
 
-Redeem items for 50 points
+---
 
-Notifications & alerts
+## 🧠 AI Recommendations
 
-🧮 Points & Badges
-100 points on signup
+- Items suggested based on tag similarity and user preferences
+- Simple rule-based filtering for demo (e.g., "You liked cotton → try this cotton top")
 
-Badges for achievements (Eco Warrior, Trendsetter)
+---
 
-Visual reward system
+## 📡 Real-time Swap Events
 
-🎉 Bonus Features
-🧠 AI-powered recommendations
+- Live events via Socket.io
+- Users browse items, chat, and swap in real-time
+- Hosted under “Swap Events” tab in Dashboard
 
-🌿 Sustainability tracker (CO2 & water saved)
+---
 
-🧥 Virtual try-on (AR-lite using Fabric.js)
+## ❤️ Contribution
 
-🔁 Live swap events with chat (Socket.io)
+This project was built in 36 hours for a hackathon challenge to promote sustainability, community, and innovation.
 
-🤝 Community Swap Circles
+> Made with 💚 by Team ReWear
 
-🎁 Donate items to charity for bonus points
+---
 
-⚙️ Admin Panel
-Moderate item submissions
+## 📄 License
 
-Manage users & listings
+MIT License – Free to use, modify, and contribute.
 
-Approve/reject swaps
+---
 
-Send platform-wide announcements
+## ✨ Pitch Tips (for Hackathon)
 
-Dashboard with site stats
-
-📱 Mobile Optimized & Accessible
-Fully responsive layout (Tailwind CSS)
-
-WCAG 2.1 AA compliant
-
-Dark mode toggle
-
-Keyboard navigation & screen reader support
-
-🔒 Security
-JWT auth & route protection
-
-bcrypt-hashed passwords
-
-Input sanitization & validation
-
-Secure image uploads (Cloudinary whitelisting)
-
-⚡ Performance & Optimization
-Lazy loading images
-
-CDN-hosted static assets
-
-Cloudinary compression
-
-Optimized Lighthouse score
-
-PWA installable on mobile
-
-🧪 Tests
-bash
-Copy
-Edit
-npm test
-Includes:
-
-Auth logic unit tests
-
-Swap system validation
-
-API route testing (Jest + Supertest)
-
-📈 Sustainability Formula (used in Dashboard)
-js
-Copy
-Edit
-CO2 Saved = 2.7kg * swapsCompleted
-Water Saved = 2700L * swapsCompleted
-Badge examples:
-
-Eco Warrior: 5 swaps
-
-Green Pioneer: 20kg CO2 saved
-
-Trendsetter: 10 items listed
-
-💡 Future Improvements
-Stripe donations for sustainability orgs
-
-Odoo CRM & Inventory integration
-
-AI outfit matching
-
-In-app messaging system
-
-Geo-based swaps
-
-📸 Screenshots
-(Include screenshots of landing page, dashboard, item detail, admin panel, swap modal, sustainability tracker, etc.)
-
-🙌 Contributing
-PRs welcome! Fork the repo, make your changes, and submit a pull request. See CONTRIBUTING.md for guidelines.
-
-📝 License
-MIT © 2025 ReWear Team
-
-🏁 Credits
-Built with 💚 by the ReWear Hackathon Team
-
-Fonts: Inter, Playfair Display
-
-Icons: FontAwesome
-
-Images: Unsplash
-
-Cloud Services: MongoDB Atlas, Cloudinary, Render, Vercel
+- Emphasize **eco-impact**: “13.5 kg CO2 saved is like skipping a 50km drive!”
+- Mention **Odoo integration**: Future plan to plug into inventory/eCommerce.
+- Demo Flow: `Signup → List Item → Try-On → Request Swap → Approve via Admin → See CO2 Saved → Earn Badge`
